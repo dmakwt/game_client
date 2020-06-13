@@ -1,15 +1,23 @@
+import 'package:flutter/material.dart';
+import 'package:game_client/services/api/user_api_service.dart';
 import 'package:game_client/services/sounds/sound_service.dart';
 import 'package:game_client/services/sounds/sound_service_implementation.dart';
+import 'package:game_client/services/storage/storage_service.dart';
+import 'package:game_client/services/storage/storage_service_implementation.dart';
 import 'package:game_client/view_models/login/manage_login_screen_viewmodel.dart';
 import 'package:get_it/get_it.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 GetIt serviceLocator = GetIt.instance;
 
-void setupServiceLocator() {
+Future<void> setupServiceLocator({@required SharedPreferences sharedPreferences}) async {
   serviceLocator.registerLazySingleton<SoundService>(() => SoundServiceImpl());
-  // serviceLocator.registerLazySingleton<StorageService>(() => StorageServiceImpl());
-  // serviceLocator.registerLazySingleton<WebApi>(() => WebApiImpl());
+  serviceLocator.registerLazySingleton<StorageService>(
+    () => StorageServiceImpl(sharedPreferences: sharedPreferences),
+  );
+  serviceLocator.registerLazySingleton<UserApiService>(() => UserApiService());
 
-  serviceLocator.registerFactory<ManageLoginScreenViewModel>(() => ManageLoginScreenViewModel());
+  serviceLocator.registerFactory<ManageLoginScreenViewModel>(
+      () => ManageLoginScreenViewModel());
   // serviceLocator.registerFactory<ChooseFavoritesViewModel>(() => ChooseFavoritesViewModel());
 }

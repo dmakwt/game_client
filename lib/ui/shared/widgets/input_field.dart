@@ -7,12 +7,20 @@ class InputField extends StatefulWidget {
   final TextEditingController controllerField;
   final TextInputType keyboardType;
   final bool isObscure;
+  final TextInputAction textInputAction;
+  final FocusNode focusNode;
+  final FocusNode nextFocusNode;
+  final bool autoFocus;
 
   const InputField({
     @required this.placeholder,
     @required this.icon,
     @required this.controllerField,
     @required this.keyboardType,
+    @required this.textInputAction,
+    @required this.focusNode,
+    @required this.nextFocusNode,
+    this.autoFocus = false,
     this.isObscure = false,
   });
 
@@ -35,7 +43,13 @@ class _InputFieldState extends State<InputField> {
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 20),
         width: 300,
-        child: TextField(
+        child: TextFormField(
+          autofocus: widget.autoFocus,
+          textInputAction: widget.textInputAction,
+          onFieldSubmitted: (v) {
+            FocusScope.of(context).requestFocus(widget.nextFocusNode);
+          },
+          focusNode: widget.focusNode,
           obscureText: widget.isObscure,
           autocorrect: false,
           enableSuggestions: false,

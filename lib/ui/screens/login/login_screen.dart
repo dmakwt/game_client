@@ -1,9 +1,10 @@
+import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:game_client/services/service_locator.dart';
-import 'package:game_client/ui/screens/login/widgets/custom_button.dart';
+import 'package:game_client/ui/shared/widgets/custom_button.dart';
+import 'package:game_client/ui/screens/login/widgets/forget_password_dialog.dart';
 import 'package:game_client/ui/screens/login/widgets/game_logo.dart';
-import 'package:game_client/ui/screens/login/widgets/input_field.dart';
+import 'package:game_client/ui/shared/widgets/input_field.dart';
 import 'package:game_client/ui/shared/game_colors.dart';
 import 'package:game_client/view_models/login/manage_login_screen_viewmodel.dart';
 
@@ -18,6 +19,9 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final focus1 = FocusNode();
+  final focus2 = FocusNode();
+
   final textController1 = TextEditingController();
   final textController2 = TextEditingController();
 
@@ -36,7 +40,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
     return GestureDetector(
       onTap: () {
-        FocusScope.of(context).requestFocus(FocusNode());
+        FocusScope.of(context).unfocus();
       },
       child: SingleChildScrollView(
         child: Center(
@@ -46,68 +50,100 @@ class _LoginScreenState extends State<LoginScreen> {
               Container(
                 height: 700,
                 width: 700,
-                child: Column(
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.only(top: 150),
-                      child: GameLogo(),
-                    ),
-                    SizedBox(height: 45),
-                    InputField(
-                      controllerField: textController1,
-                      keyboardType: TextInputType.emailAddress,
-                      icon: FontAwesomeIcons.at,
-                      placeholder: 'EMAIL',
-                    ),
-                    SizedBox(height: 10),
-                    InputField(
-                      controllerField: textController2,
-                      keyboardType: TextInputType.visiblePassword,
-                      isObscure: true,
-                      icon: FontAwesomeIcons.lock,
-                      placeholder: 'PASSWORD',
-                    ),
-                    SizedBox(height: 30),
-                    CustomButton(
-                      text: 'LOG IN',
-                      onPressed: () {
-                       
-                      },
-                    ),
-                    SizedBox(height: 15),
-                    FlatButton(
-                      child: RichText(
-                        text: TextSpan(
-                          children: <TextSpan>[
-                            TextSpan(
-                              text: 'DON\'T HAVE AN ACCOUNT?',
-                              style: TextStyle(
-                                color: GameColors.textColor.withOpacity(0.7),
-                                fontFamily: 'PTSerif',
-                                fontSize: 12,
-                              ),
+                child: Form(
+                  child: Column(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.only(top: 150),
+                        child: GameLogo(),
+                      ),
+                      SizedBox(height: 45),
+                      InputField(
+                        focusNode: focus1,
+                        nextFocusNode: focus2,
+                        controllerField: textController1,
+                        textInputAction: TextInputAction.next,
+                        keyboardType: TextInputType.emailAddress,
+                        icon: FontAwesomeIcons.at,
+                        placeholder: 'Email',
+                      ),
+                      SizedBox(height: 10),
+                      InputField(
+                        focusNode: focus2,
+                        nextFocusNode: FocusNode(),
+                        controllerField: textController2,
+                        textInputAction: TextInputAction.done,
+                        keyboardType: TextInputType.visiblePassword,
+                        isObscure: true,
+                        icon: FontAwesomeIcons.lock,
+                        placeholder: 'Password',
+                      ),
+                      Container(
+                        alignment: Alignment.centerRight,
+                        padding: EdgeInsets.only(right: 60),
+                        child: FlatButton(
+                          child: Text(
+                            'Forgot password?',
+                            style: TextStyle(
+                              color: GameColors.textColor.withOpacity(0.7),
+                              fontSize: 14,
                             ),
-                            TextSpan(
-                              text: '   SIGN UP',
-                              style: TextStyle(
-                                fontFamily: 'PTSerif',
-                                color: GameColors.textColor,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 12,
-                              ),
-                            ),
-                          ],
+                          ),
+                          onPressed: () {
+                            showDialog(
+                              context: context,
+                              builder: (context) =>
+                                  ForgetPasswordDialog(textController1),
+                            );
+                          },
                         ),
                       ),
-                      onPressed: () {
-                        widget.pageViewController.animateToPage(
-                          1,
-                          duration: Duration(milliseconds: 600),
-                          curve: Curves.ease,
-                        );
-                      },
-                    )
-                  ],
+                      SizedBox(height: 30),
+                      CustomButton(
+                        text: 'Login',
+                        onPressed: () async {
+                          await widget.model.signInUser(
+                            context,
+                            email: textController1.text,
+                            password: textController2.text,
+                          );
+                        },
+                      ),
+                      SizedBox(height: 15),
+                      FlatButton(
+                        child: RichText(
+                          text: TextSpan(
+                            children: <TextSpan>[
+                              TextSpan(
+                                text: 'Don\'t have an account?',
+                                style: TextStyle(
+                                  color: GameColors.textColor.withOpacity(0.7),
+                                  fontFamily: 'PTSerif',
+                                  fontSize: 14,
+                                ),
+                              ),
+                              TextSpan(
+                                text: '   SIGN UP',
+                                style: TextStyle(
+                                  fontFamily: 'PTSerif',
+                                  color: GameColors.textColor,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 14,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        onPressed: () {
+                          widget.pageViewController.animateToPage(
+                            1,
+                            duration: Duration(milliseconds: 600),
+                            curve: Curves.ease,
+                          );
+                        },
+                      )
+                    ],
+                  ),
                 ),
               ),
             ],

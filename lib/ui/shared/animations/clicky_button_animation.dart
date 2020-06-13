@@ -3,19 +3,23 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:game_client/services/service_locator.dart';
 import 'package:game_client/services/sounds/sound_service.dart';
-import 'package:game_client/ui/shared/game_colors.dart';
 
-class CustomButton extends StatefulWidget {
-  final String text;
+class ClickyButtonAnimation extends StatefulWidget {
+  final Widget child;
   final Function onPressed;
+  final String sound;
 
-  const CustomButton({@required this.text, @required this.onPressed});
+  const ClickyButtonAnimation({
+    @required this.child,
+    @required this.onPressed,
+    this.sound = 'clickButton2',
+  });
 
   @override
-  _CustomButtonState createState() => _CustomButtonState();
+  _ClickyButtonAnimationState createState() => _ClickyButtonAnimationState();
 }
 
-class _CustomButtonState extends State<CustomButton>
+class _ClickyButtonAnimationState extends State<ClickyButtonAnimation>
     with SingleTickerProviderStateMixin {
   final SoundService _soundService = serviceLocator<SoundService>();
 
@@ -58,26 +62,7 @@ class _CustomButtonState extends State<CustomButton>
     );
   }
 
-  Widget get _animatedButtonUi => Container(
-        padding: EdgeInsets.symmetric(vertical: 2),
-        height: 95,
-        width: 150,
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('assets/frames/button.png'),
-            fit: BoxFit.contain,
-          ),
-        ),
-        child: Center(
-          child: Text(
-            widget.text,
-            style: TextStyle(
-              color: GameColors.textColor,
-              fontSize: 14,
-            ),
-          ),
-        ),
-      );
+  Widget get _animatedButtonUi => widget.child;
 
   void _onTapDown(TapDownDetails details) {
     _soundService.playSound(

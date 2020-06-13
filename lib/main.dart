@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:game_client/services/sounds/sound_service.dart';
+import 'package:game_client/services/storage/storage_service.dart';
+import 'package:game_client/ui/screens/home/map_screen.dart';
 import 'package:game_client/ui/screens/login/manage_login_screen.dart';
 import 'package:game_client/ui/shared/game_colors.dart';
 import 'package:responsive_framework/responsive_framework.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'services/service_locator.dart';
 
-void main() {
-  setupServiceLocator();
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final sharedPreferences = await SharedPreferences.getInstance();
+
+  setupServiceLocator(sharedPreferences: sharedPreferences);
+
   runApp(MyApp());
 }
 
@@ -23,7 +30,8 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    playSound();
+
+    // playSound();
   }
 
   void playSound() async {
@@ -36,6 +44,7 @@ class _MyAppState extends State<MyApp> {
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Game',
       theme: ThemeData(
         textSelectionColor: GameColors.canvesColor.withOpacity(0.8),
@@ -64,6 +73,7 @@ class _MyAppState extends State<MyApp> {
       ),
       routes: {
         '/': (context) => ManageLoginScreen(),
+        '/home': (context) => MapScreen(),
       },
     );
   }

@@ -20,4 +20,5 @@ class GameColors {
   static Color canvesColor = Color.fromRGBO(73, 58, 46, 1);
   static Color goldColor = Color.fromRGBO(255, 215, 0, 1);
   static Color darkOrange = Color.fromRGBO(255, 165, 0, 1);
+  static Color backgroundColor2 = Color.fromRGBO(108, 87, 70, 1);
 }
