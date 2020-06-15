@@ -1,4 +1,3 @@
-import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:game_client/ui/shared/widgets/custom_button.dart';
@@ -92,8 +91,10 @@ class _LoginScreenState extends State<LoginScreen> {
                           onPressed: () {
                             showDialog(
                               context: context,
-                              builder: (context) =>
-                                  ForgetPasswordDialog(textController1),
+                              builder: (context) => ForgetPasswordDialog(
+                                model: widget.model,
+                                textEditingController: textController1,
+                              ),
                             );
                           },
                         ),

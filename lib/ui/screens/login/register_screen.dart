@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:game_client/services/service_locator.dart';
 import 'package:game_client/ui/shared/widgets/custom_button.dart';
 import 'package:game_client/ui/screens/login/widgets/game_logo.dart';
 import 'package:game_client/ui/shared/widgets/input_field.dart';

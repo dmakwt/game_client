@@ -1,7 +1,7 @@
 import 'package:diagonal_scrollview/diagonal_scrollview.dart';
 import 'package:flutter/material.dart';
 import 'package:game_client/services/service_locator.dart';
-import 'package:game_client/services/storage/storage_service.dart';
+import 'package:game_client/view_models/login/manage_login_screen_viewmodel.dart';
 
 class MapScreen extends StatefulWidget {
   @override
@@ -9,15 +9,13 @@ class MapScreen extends StatefulWidget {
 }
 
 class _MapScreenState extends State<MapScreen> {
-  DiagonalScrollViewController _controller;
-  final StorageService _storageService = serviceLocator<StorageService>();
+  // DiagonalScrollViewController _controller;
+  final ManageLoginScreenViewModel _manageLoginScreenViewModel =
+      serviceLocator<ManageLoginScreenViewModel>();
 
   @override
   void initState() {
     super.initState();
-    print(
-      _storageService.getToken(),
-    );
   }
 
   @override
@@ -58,10 +56,15 @@ class _MapScreenState extends State<MapScreen> {
                   Positioned(
                     top: 600,
                     left: 1453,
-                    child: Container(
-                      height: 45,
-                      width: 210,
-                      color: Colors.red,
+                    child: GestureDetector(
+                      onTap: () async {
+                        await _manageLoginScreenViewModel.logout(context);
+                      },
+                      child: Container(
+                        height: 45,
+                        width: 210,
+                        color: Colors.red,
+                      ),
                     ),
                   )
                 ],

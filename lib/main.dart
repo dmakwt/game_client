@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:game_client/services/api/user_api_service.dart';
 import 'package:game_client/services/sounds/sound_service.dart';
 import 'package:game_client/services/storage/storage_service.dart';
 import 'package:game_client/ui/screens/home/map_screen.dart';
 import 'package:game_client/ui/screens/login/manage_login_screen.dart';
 import 'package:game_client/ui/shared/game_colors.dart';
+import 'package:game_client/ui/splash/splash_screen.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -13,7 +15,6 @@ import 'services/service_locator.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final sharedPreferences = await SharedPreferences.getInstance();
-
   setupServiceLocator(sharedPreferences: sharedPreferences);
 
   runApp(MyApp());
@@ -30,7 +31,6 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-
     // playSound();
   }
 
@@ -72,7 +72,8 @@ class _MyAppState extends State<MyApp> {
         ),
       ),
       routes: {
-        '/': (context) => ManageLoginScreen(),
+        '/': (context) => SplashScreen(),
+        '/login': (context) => ManageLoginScreen(),
         '/home': (context) => MapScreen(),
       },
     );

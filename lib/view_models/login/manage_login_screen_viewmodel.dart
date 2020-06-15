@@ -4,7 +4,7 @@ import 'package:game_client/services/api/user_api_service.dart';
 import 'package:game_client/services/service_locator.dart';
 import 'package:game_client/services/sounds/sound_service.dart';
 import 'package:game_client/services/storage/storage_service.dart';
-import 'package:game_client/ui/screens/login/widgets/forget_password_dialog.dart';
+import 'package:game_client/ui/shared/game_colors.dart';
 
 class ManageLoginScreenViewModel extends ChangeNotifier {
   final SoundService _soundService = serviceLocator<SoundService>();
@@ -86,5 +86,59 @@ class ManageLoginScreenViewModel extends ChangeNotifier {
     }
   }
 
-  
+  void printToken() {
+    print(_storageService.getToken());
+  }
+
+  Future<void> logout(BuildContext context) async {
+    final token = _storageService.getToken();
+
+    if (token != null) {
+      turnLoading();
+      print('Token: before: $token');
+      await _storageService.setToken('');
+      print('Token: after: ${_storageService.getToken()}');
+      await Navigator.of(context).pushReplacementNamed('/');
+      turnLoading();
+    } else {
+      turnLoading();
+      await Navigator.of(context).pushReplacementNamed('/');
+      turnLoading();
+    }
+  }
+
+  Future<void> resetPassword(context, {@required String email}) async {
+    try {
+      Navigator.of(context).pop();
+      turnLoading();
+      final url = await _userApiService.resetPassword(email: email);
+      print(url);
+      turnLoading();
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          content: Text('Please check your Email'),
+          actions: <Widget>[
+            FlatButton(
+              child: Text(
+                'Ok',
+                style: TextStyle(
+                  color: GameColors.textColor,
+                ),
+              ),
+              onPressed: () => Navigator.of(context).pop(),
+            )
+          ],
+        ),
+      );
+    } catch (e) {
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          content: Text(e.body.toString()),
+        ),
+      );
+      turnLoading();
+    }
+  }
 }

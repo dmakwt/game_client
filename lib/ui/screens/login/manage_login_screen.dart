@@ -55,23 +55,22 @@ class ManageLoginScreen extends StatelessWidget {
             ),
           ),
           floatingActionButton: Padding(
-            padding: const EdgeInsets.only(bottom: 45, right: 10),
-            child: Consumer<ManageLoginScreenViewModel>(
-              builder: (context, model, child) => IconButton(
-                color: GameColors.textColor,
-                icon: Icon(
-                  model.isPlay
-                      ? FontAwesomeIcons.volumeUp
-                      : FontAwesomeIcons.volumeOff,
-                ),
-                onPressed: () {
-                  if (model.isPlay) {
-                    model.stopBackgroundMusic();
-                  } else {
-                    model.playBackgroundMusic();
-                  }
-                },
+            padding: const EdgeInsets.only(bottom: 25, right: 8),
+            child: IconButton(
+              color: GameColors.textColor,
+              icon: Icon(
+                model.isPlay
+                    ? FontAwesomeIcons.volumeUp
+                    : FontAwesomeIcons.volumeOff,
               ),
+              onPressed: () {
+                model.printToken();
+                // if (model.isPlay) {
+                //   model.stopBackgroundMusic();
+                // } else {
+                //   model.playBackgroundMusic();
+                // }
+              },
             ),
           ),
         );
