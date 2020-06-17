@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:game_client/services/api/user_api_service.dart';
+import 'package:game_client/services/socketio/socket_service.dart';
 import 'package:game_client/services/sounds/sound_service.dart';
 import 'package:game_client/services/sounds/sound_service_implementation.dart';
 import 'package:game_client/services/storage/storage_service.dart';
@@ -10,12 +11,14 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 GetIt serviceLocator = GetIt.instance;
 
-Future<void> setupServiceLocator({@required SharedPreferences sharedPreferences}) async {
+Future<void> setupServiceLocator(
+    {@required SharedPreferences sharedPreferences}) async {
   serviceLocator.registerLazySingleton<SoundService>(() => SoundServiceImpl());
   serviceLocator.registerLazySingleton<StorageService>(
     () => StorageServiceImpl(sharedPreferences: sharedPreferences),
   );
   serviceLocator.registerLazySingleton<UserApiService>(() => UserApiService());
+  serviceLocator.registerLazySingleton<SocketService>(() => SocketService());
 
   serviceLocator.registerFactory<ManageLoginScreenViewModel>(
       () => ManageLoginScreenViewModel());

@@ -2,11 +2,12 @@ import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
 import 'package:game_client/config/api_key.dart';
+import 'package:game_client/models/user.dart';
 import 'package:http/http.dart' as http;
 
 class UserApiService {
   // Sign Up
-  Future<String> userSignUp({
+  Future<User> userSignUp({
     @required String username,
     @required String email,
     @required String password,
@@ -26,8 +27,10 @@ class UserApiService {
     if (response.statusCode == 201) {
       final data = json.decode(response.body);
       final token = data['token'];
-      if (token != null) {
-        return token as String;
+      final usernameID = data['usernameID'];
+
+      if (token != null && usernameID != null) {
+        return User.fromJson(data);
       }
     }
 
@@ -37,7 +40,7 @@ class UserApiService {
   }
 
   // Sign In
-  Future<String> userSignIn({
+  Future<User> userSignIn({
     @required String email,
     @required String password,
   }) async {
@@ -55,8 +58,10 @@ class UserApiService {
     if (response.statusCode == 200) {
       final data = json.decode(response.body);
       final token = data['token'];
-      if (token != null) {
-        return token as String;
+      final usernameID = data['usernameID'];
+
+      if (token != null && usernameID != null) {
+        return User.fromJson(data);
       }
     }
 

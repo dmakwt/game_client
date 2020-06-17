@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:game_client/services/api/user_api_service.dart';
 import 'package:game_client/services/sounds/sound_service.dart';
-import 'package:game_client/services/storage/storage_service.dart';
 import 'package:game_client/ui/screens/home/map_screen.dart';
 import 'package:game_client/ui/screens/login/manage_login_screen.dart';
 import 'package:game_client/ui/shared/game_colors.dart';
@@ -16,6 +14,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final sharedPreferences = await SharedPreferences.getInstance();
   setupServiceLocator(sharedPreferences: sharedPreferences);
+
 
   runApp(MyApp());
 }

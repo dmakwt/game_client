@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:game_client/services/api/user_api_service.dart';
 import 'package:game_client/services/service_locator.dart';
+import 'package:game_client/services/socketio/socket_service.dart';
 import 'package:game_client/services/storage/storage_service.dart';
 import 'package:game_client/ui/shared/game_colors.dart';
-import 'package:loading_overlay/loading_overlay.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -11,13 +11,19 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  // bool isLoading = false;
+  final SocketService _socketService = serviceLocator<SocketService>();
+  final StorageService _storageService = serviceLocator<StorageService>();
 
   Future<void> checkAuth() async {
     bool isLogin = await checkUserLoginOrNot();
     print('checkAuth function $isLogin');
 
     if (isLogin) {
+      // Socket IO
+      _socketService.createSocketConnection(
+        usernameID: _storageService.getUsernameID(),
+      );
+
       Navigator.of(context).pushReplacementNamed('/home');
     } else {
       Navigator.of(context).pushReplacementNamed('/login');

@@ -22,4 +22,12 @@ class StorageServiceImpl implements StorageService {
   String getToken() {
     return sharedPreferences.getString('token');
   }
+
+  Future<void> setUsernameID(String usernameID) async {
+    await sharedPreferences.setString('usernameID', usernameID);
+  }
+
+  String getUsernameID() {
+    return sharedPreferences.getString('usernameID');
+  }
 }

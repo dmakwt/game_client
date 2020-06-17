@@ -10,4 +10,9 @@ abstract class StorageService {
   Future<void> setToken(String token);
 
   String getToken();
+
+  Future<void> setUsernameID(String usernameID);
+
+  String getUsernameID();
+
 }
