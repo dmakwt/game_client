@@ -10,11 +10,15 @@ class SocketService {
       'transports': ['websocket'],
     });
 
-    this.socket.on('connect', (_) => print('Connected'));
-    this.socket.on('disconnect', (_) => print('Disconnected'));
-    print(usernameID);
-    this.socket.emit('join', {usernameID});
+    this.socket.on('connect', (_) {
+      print('Socket connecting $usernameID');
+      this.socket.emit('join', usernameID);
+    });
 
-    this.socket.on('test', (_) => print('tessssstt'));
+
+    this.socket.on('disconnect', (_) => print('Disconnected'));
+
+
+    this.socket.on('profileChanged', (profile) => print(profile));
   }
 }
