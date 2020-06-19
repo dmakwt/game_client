@@ -7,11 +7,13 @@ class StatusAppbarViewModel extends ChangeNotifier {
   double _energy = 0;
   double _xp = 0;
   double _money = 0;
+  int _gems = 0;
 
   double get hp => _hp;
   double get energy => _energy;
   double get xp => _xp;
   double get money => _money;
+  int get gems => _gems;
 
   bool isLoading = false;
 
@@ -22,6 +24,7 @@ class StatusAppbarViewModel extends ChangeNotifier {
     _energy = profile.energy;
     _xp = profile.xp;
     _money = profile.money;
+    _gems = profile.gems;
     notifyListeners();
   }
 }
