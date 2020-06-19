@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:game_client/services/storage/storage_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'package:game_client/services/storage/storage_service.dart';
 
 class StorageServiceImpl implements StorageService {
   final SharedPreferences sharedPreferences;

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:game_client/models/user_checker.dart';
 import 'package:game_client/services/api/user_api_service.dart';
 import 'package:game_client/services/service_locator.dart';
 import 'package:game_client/services/socketio/socket_service.dart';
 import 'package:game_client/services/storage/storage_service.dart';
 import 'package:game_client/ui/shared/game_colors.dart';
+import 'package:game_client/view_models/home/status_appbar_viewmodel.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -33,6 +35,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Future<bool> checkUserLoginOrNot() async {
     final StorageService _storageService = serviceLocator<StorageService>();
     final UserApiService _userApiService = serviceLocator<UserApiService>();
+    final StatusAppbarViewModel model = serviceLocator<StatusAppbarViewModel>();
 
     final token = _storageService.getToken();
 
@@ -41,7 +44,10 @@ class _SplashScreenState extends State<SplashScreen> {
     } else {
       bool isLogin = false;
       try {
-        isLogin = await _userApiService.checkToken(token);
+        UserChecker userChecker = await _userApiService.checkToken(token);
+        await model.updateData(userChecker.profile);
+
+        isLogin = userChecker.isLogin;
       } catch (e) {
         isLogin = false;
       }

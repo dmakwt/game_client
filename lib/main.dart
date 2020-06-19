@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:game_client/ui/screens/home/home_screen.dart';
+import 'package:responsive_framework/responsive_framework.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
 import 'package:game_client/services/sounds/sound_service.dart';
-import 'package:game_client/ui/screens/home/map_screen.dart';
 import 'package:game_client/ui/screens/login/manage_login_screen.dart';
 import 'package:game_client/ui/shared/game_colors.dart';
 import 'package:game_client/ui/splash/splash_screen.dart';
-import 'package:responsive_framework/responsive_framework.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import 'services/service_locator.dart';
 
@@ -73,7 +74,7 @@ class _MyAppState extends State<MyApp> {
       routes: {
         '/': (context) => SplashScreen(),
         '/login': (context) => ManageLoginScreen(),
-        '/home': (context) => MapScreen(),
+        '/home': (context) => HomeScreen(),
       },
     );
   }

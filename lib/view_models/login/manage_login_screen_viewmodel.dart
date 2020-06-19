@@ -1,4 +1,5 @@
-import 'package:flutter/foundation.dart';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:game_client/services/api/user_api_service.dart';
 import 'package:game_client/services/service_locator.dart';
@@ -6,12 +7,14 @@ import 'package:game_client/services/socketio/socket_service.dart';
 import 'package:game_client/services/sounds/sound_service.dart';
 import 'package:game_client/services/storage/storage_service.dart';
 import 'package:game_client/ui/shared/game_colors.dart';
+import 'package:game_client/view_models/home/status_appbar_viewmodel.dart';
 
 class ManageLoginScreenViewModel extends ChangeNotifier {
   final SoundService _soundService = serviceLocator<SoundService>();
   final UserApiService _userApiService = serviceLocator<UserApiService>();
   final StorageService _storageService = serviceLocator<StorageService>();
   final SocketService _socketService = serviceLocator<SocketService>();
+  final StatusAppbarViewModel model = serviceLocator<StatusAppbarViewModel>();
 
   bool isLoading = false;
   bool isPlay = true;
@@ -56,14 +59,26 @@ class ManageLoginScreenViewModel extends ChangeNotifier {
         _socketService.createSocketConnection(
           usernameID: _storageService.getUsernameID(),
         );
+        
+        await model.updateData(data.profile);
 
         Navigator.of(context).pushReplacementNamed('/home');
       } else {}
+    } on SocketException catch (_) {
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          content: Text('Connection Error'),
+        ),
+      );
+      turnLoading();
     } catch (e) {
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          content: Text(e.body.toString()),
+          content: Text(
+            e.body.toString() ?? '',
+          ),
         ),
       );
       turnLoading();
@@ -87,15 +102,28 @@ class ManageLoginScreenViewModel extends ChangeNotifier {
           usernameID: _storageService.getUsernameID(),
         );
 
+        await model.updateData(data.profile);
+
         Navigator.of(context).pushReplacementNamed('/home');
       } else {}
-    } catch (e) {
+    } on SocketException catch (_) {
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          content: Text(e.body.toString()),
+          content: Text('Connection Error'),
         ),
       );
+      turnLoading();
+    } catch (e) {
+      print(e);
+      // showDialog(
+      //   context: context,
+      //   builder: (context) => AlertDialog(
+      //     content: Text(
+      //       e.body.toString() ?? '',
+      //     ),
+      //   ),
+      // );
       turnLoading();
     }
   }
@@ -147,11 +175,21 @@ class ManageLoginScreenViewModel extends ChangeNotifier {
           ],
         ),
       );
+    } on SocketException catch (_) {
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          content: Text('Connection Error'),
+        ),
+      );
+      turnLoading();
     } catch (e) {
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          content: Text(e.body.toString()),
+          content: Text(
+            e.body.toString() ?? '',
+          ),
         ),
       );
       turnLoading();

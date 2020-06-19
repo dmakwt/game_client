@@ -1,9 +1,12 @@
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
+import 'package:game_client/models/profile.dart';
+import 'package:game_client/models/user_checker.dart';
+import 'package:http/http.dart' as http;
+
 import 'package:game_client/config/api_key.dart';
 import 'package:game_client/models/user.dart';
-import 'package:http/http.dart' as http;
 
 class UserApiService {
   // Sign Up
@@ -28,8 +31,9 @@ class UserApiService {
       final data = json.decode(response.body);
       final token = data['token'];
       final usernameID = data['usernameID'];
+      final profile = data['profile'];
 
-      if (token != null && usernameID != null) {
+      if (token != null && usernameID != null && profile != null) {
         return User.fromJson(data);
       }
     }
@@ -59,8 +63,13 @@ class UserApiService {
       final data = json.decode(response.body);
       final token = data['token'];
       final usernameID = data['usernameID'];
+      final profile = data['profile'];
 
-      if (token != null && usernameID != null) {
+      print('--------');
+      print(response.body);
+      print('--------');
+
+      if (token != null && usernameID != null && profile != null) {
         return User.fromJson(data);
       }
     }
@@ -95,7 +104,7 @@ class UserApiService {
     throw response;
   }
 
-  Future<bool> checkToken(String token) async {
+  Future<UserChecker> checkToken(String token) async {
     final response = await http.get(
       '${APIKeys.urlApi}/users/check',
       headers: {'Authorization': 'Bearer $token'},
@@ -106,11 +115,20 @@ class UserApiService {
     if (response.statusCode == 200) {
       final data = json.decode(response.body);
       final isLogin = data['success'];
-      if (isLogin != null) {
-        return isLogin as bool;
+      final profile = data['profile'];
+
+      if (isLogin != null && profile != null) {
+        return UserChecker.fromJson(data);
       }
     }
 
-    return false;
+    return UserChecker(
+        isLogin: false,
+        profile: Profile(
+          hp: 0,
+          energy: 0,
+          xp: 0,
+          money: 0,
+        ));
   }
 }

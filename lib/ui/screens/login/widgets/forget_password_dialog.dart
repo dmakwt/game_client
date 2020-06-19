@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import 'package:game_client/ui/shared/game_colors.dart';
 import 'package:game_client/ui/shared/widgets/custom_long_button.dart';
 import 'package:game_client/ui/shared/widgets/input_field.dart';
-import 'package:game_client/ui/shared/game_colors.dart';
 import 'package:game_client/view_models/login/manage_login_screen_viewmodel.dart';
 
 class ForgetPasswordDialog extends StatelessWidget {

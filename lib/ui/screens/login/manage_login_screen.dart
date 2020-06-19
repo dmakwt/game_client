@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:loading_overlay/loading_overlay.dart';
+import 'package:provider/provider.dart';
+
 import 'package:game_client/services/service_locator.dart';
 import 'package:game_client/ui/screens/login/login_screen.dart';
 import 'package:game_client/ui/screens/login/register_screen.dart';
 import 'package:game_client/ui/shared/game_colors.dart';
 import 'package:game_client/view_models/login/manage_login_screen_viewmodel.dart';
-import 'package:loading_overlay/loading_overlay.dart';
-import 'package:provider/provider.dart';
 
 class ManageLoginScreen extends StatelessWidget {
   final ManageLoginScreenViewModel model =
