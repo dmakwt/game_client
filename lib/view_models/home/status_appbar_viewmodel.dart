@@ -3,28 +3,22 @@ import 'package:flutter/material.dart';
 import 'package:game_client/models/profile.dart';
 
 class StatusAppbarViewModel extends ChangeNotifier {
-  double _hp = 0;
-  double _energy = 0;
-  double _xp = 0;
-  double _money = 0;
-  int _gems = 0;
+  Profile _profile = Profile();
 
-  double get hp => _hp;
-  double get energy => _energy;
-  double get xp => _xp;
-  double get money => _money;
-  int get gems => _gems;
+  double get hp => _profile.hp;
+  double get energy => _profile.energy;
+  double get xp => _profile.xp;
+  double get money => _profile.money;
+  int get gems => _profile.gems;
+  int get level => _profile.level;
+  String get avatarURL => _profile.avatarURL;
 
   bool isLoading = false;
 
   Future<void> updateData(Profile profile) async {
     print('Updated function');
+    _profile = profile;
 
-    _hp = profile.hp;
-    _energy = profile.energy;
-    _xp = profile.xp;
-    _money = profile.money;
-    _gems = profile.gems;
     notifyListeners();
   }
 }

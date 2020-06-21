@@ -13,20 +13,14 @@ class _MapScreenState extends State<MapScreen> {
   final ManageLoginScreenViewModel _manageLoginScreenViewModel =
       serviceLocator<ManageLoginScreenViewModel>();
 
-
   @override
   void initState() {
     super.initState();
-
-    
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('as'),
-      ),
       body: Stack(
         children: <Widget>[
           DiagonalScrollView(
