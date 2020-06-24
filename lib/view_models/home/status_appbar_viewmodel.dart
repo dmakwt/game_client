@@ -16,7 +16,6 @@ class StatusAppbarViewModel extends ChangeNotifier {
   bool isLoading = false;
 
   Future<void> updateData(Profile profile) async {
-    print('Updated function');
     _profile = profile;
 
     notifyListeners();

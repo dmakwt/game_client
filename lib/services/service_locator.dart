@@ -15,6 +15,7 @@ GetIt serviceLocator = GetIt.instance;
 
 Future<void> setupServiceLocator(
     {@required SharedPreferences sharedPreferences}) async {
+  // Services
   serviceLocator.registerLazySingleton<SoundService>(() => SoundServiceImpl());
   serviceLocator.registerLazySingleton<StorageService>(
     () => StorageServiceImpl(sharedPreferences: sharedPreferences),
@@ -23,7 +24,6 @@ Future<void> setupServiceLocator(
   serviceLocator.registerLazySingleton<SocketService>(() => SocketService());
 
   // View Models
-
   serviceLocator.registerLazySingleton<StatusAppbarViewModel>(
       () => StatusAppbarViewModel());
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:game_client/ui/screens/home/home_screen.dart';
+import 'package:game_client/ui/screens/home/main_screen.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -74,7 +74,7 @@ class _MyAppState extends State<MyApp> {
       routes: {
         '/': (context) => SplashScreen(),
         '/login': (context) => ManageLoginScreen(),
-        '/home': (context) => HomeScreen(),
+        '/home': (context) => MainScreen(),
       },
     );
   }
