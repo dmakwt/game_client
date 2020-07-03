@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:game_client/services/api/user_api_service.dart';
+import 'package:game_client/services/logger.dart';
 import 'package:game_client/services/service_locator.dart';
 import 'package:game_client/services/socketio/socket_service.dart';
 import 'package:game_client/services/sounds/sound_service.dart';
@@ -15,6 +16,8 @@ class ManageLoginScreenViewModel extends ChangeNotifier {
   final StorageService _storageService = serviceLocator<StorageService>();
   final SocketService _socketService = serviceLocator<SocketService>();
   final StatusAppbarViewModel model = serviceLocator<StatusAppbarViewModel>();
+
+  final logger = getLogger('ManageLoginScreenViewModel');
 
   bool isLoading = false;
   bool isPlay = true;
@@ -59,7 +62,7 @@ class ManageLoginScreenViewModel extends ChangeNotifier {
         _socketService.createSocketConnection(
           usernameID: _storageService.getUsernameID(),
         );
-        
+
         await model.updateData(data.profile);
 
         Navigator.of(context).pushReplacementNamed('/home');
@@ -129,7 +132,7 @@ class ManageLoginScreenViewModel extends ChangeNotifier {
   }
 
   void printToken() {
-    print(_storageService.getToken());
+    logger.i(_storageService.getToken());
   }
 
   Future<void> logout(BuildContext context) async {
@@ -151,15 +154,18 @@ class ManageLoginScreenViewModel extends ChangeNotifier {
     }
   }
 
-  Future<void> resetPassword(context, {@required String email}) async {
+  Future<void> resetPassword(BuildContext dialogContex,
+      {@required String email}) async {
     try {
-      Navigator.of(context).pop();
+      Navigator.of(dialogContex).pop();
       turnLoading();
       final url = await _userApiService.resetPassword(email: email);
-      print(url);
+
+      logger.i(url);
+
       turnLoading();
       showDialog(
-        context: context,
+        context: dialogContex,
         builder: (context) => AlertDialog(
           content: Text('Please check your Email'),
           actions: <Widget>[
@@ -177,7 +183,7 @@ class ManageLoginScreenViewModel extends ChangeNotifier {
       );
     } on SocketException catch (_) {
       showDialog(
-        context: context,
+        context: dialogContex,
         builder: (context) => AlertDialog(
           content: Text('Connection Error'),
         ),
@@ -185,7 +191,7 @@ class ManageLoginScreenViewModel extends ChangeNotifier {
       turnLoading();
     } catch (e) {
       showDialog(
-        context: context,
+        context: dialogContex,
         builder: (context) => AlertDialog(
           content: Text(
             e.body.toString() ?? '',

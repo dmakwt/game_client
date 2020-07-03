@@ -51,6 +51,7 @@ class ForgetPasswordDialog extends StatelessWidget {
                     context,
                     email: textEditingController.text,
                   );
+                  Navigator.pop(context);
                 })
           ],
         ),

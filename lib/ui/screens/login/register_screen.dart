@@ -28,7 +28,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   double caculateTopHeight(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    print(size.height);
     if (size.height >= 1000) {
       return 300;
     } else {
