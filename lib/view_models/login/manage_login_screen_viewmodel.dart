@@ -154,51 +154,30 @@ class ManageLoginScreenViewModel extends ChangeNotifier {
     }
   }
 
-  Future<void> resetPassword(BuildContext dialogContex,
+  Future<void> resetPassword(BuildContext context,
       {@required String email}) async {
     try {
-      Navigator.of(dialogContex).pop();
+      Navigator.of(context).pop();
       turnLoading();
       final url = await _userApiService.resetPassword(email: email);
 
       logger.i(url);
 
+      //TODO: Need to show dialog that to tell the use to check his email
+
       turnLoading();
-      showDialog(
-        context: dialogContex,
-        builder: (context) => AlertDialog(
-          content: Text('Please check your Email'),
-          actions: <Widget>[
-            FlatButton(
-              child: Text(
-                'Ok',
-                style: TextStyle(
-                  color: GameColors.textColor,
-                ),
-              ),
-              onPressed: () => Navigator.of(context).pop(),
-            )
-          ],
-        ),
-      );
     } on SocketException catch (_) {
       showDialog(
-        context: dialogContex,
+        context: context,
         builder: (context) => AlertDialog(
           content: Text('Connection Error'),
         ),
       );
-      turnLoading();
+      isLoading = false;
+      notifyListeners();
     } catch (e) {
-      showDialog(
-        context: dialogContex,
-        builder: (context) => AlertDialog(
-          content: Text(
-            e.body.toString() ?? '',
-          ),
-        ),
-      );
-      turnLoading();
+      isLoading = false;
+      notifyListeners();
     }
   }
 }

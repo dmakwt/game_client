@@ -13,6 +13,8 @@ class ManageLoginScreen extends StatelessWidget {
   final ManageLoginScreenViewModel model =
       serviceLocator<ManageLoginScreenViewModel>();
 
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
   final pageViewController = PageController();
 
   @override
@@ -22,6 +24,7 @@ class ManageLoginScreen extends StatelessWidget {
       child: Consumer<ManageLoginScreenViewModel>(
           builder: (context, model, widget) {
         return Scaffold(
+          key: _scaffoldKey,
           backgroundColor: GameColors.backgroundColor,
           resizeToAvoidBottomPadding: false,
           body: LoadingOverlay(
