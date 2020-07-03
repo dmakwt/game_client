@@ -35,7 +35,7 @@ class SoundServiceImpl implements SoundService {
       playInBackground: PlayInBackground.disabledRestoreOnForeground,
       volume: 0.10,
       autoStart: true,
-      loop: true,
+      loopMode: LoopMode.single,
     );
   }
 

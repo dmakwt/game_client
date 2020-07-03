@@ -16,7 +16,6 @@ void main() async {
   final sharedPreferences = await SharedPreferences.getInstance();
   setupServiceLocator(sharedPreferences: sharedPreferences);
 
-
   runApp(MyApp());
 }
 

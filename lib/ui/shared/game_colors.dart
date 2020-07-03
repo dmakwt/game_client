@@ -15,10 +15,12 @@ class GameColors {
   });
 
   static Color backgroundColor = Color.fromRGBO(14, 11, 11, 1);
+  static Color backgroundColor3 = Color(0xFF201916);
   static Color textColor = Color.fromRGBO(227, 194, 175, 1);
   static Color placeholderColor = Color.fromRGBO(227, 194, 175, 0.2);
   static Color canvesColor = Color.fromRGBO(73, 58, 46, 1);
-  static Color goldColor = Color.fromRGBO(255, 215, 0, 1);
+  static Color goldColor2 = Color.fromRGBO(255, 215, 0, 1);
   static Color darkOrange = Color.fromRGBO(255, 165, 0, 1);
   static Color backgroundColor2 = Color.fromRGBO(108, 87, 70, 1);
+  static Color goldColor = Color(0xFF68503F);
 }

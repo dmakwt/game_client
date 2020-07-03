@@ -26,7 +26,7 @@ class _MapScreenState extends State<MapScreen> {
           DiagonalScrollView(
             enableFling: true,
             enableZoom: true,
-            minScale: 0.8,
+            minScale: 0.5,
             maxScale: 0.75,
             maxWidth: 1920,
             maxHeight: 1295,

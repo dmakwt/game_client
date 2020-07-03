@@ -1,16 +1,16 @@
-Date : 2020-06-18 21:25:09
+Date : 2020-06-26 06:53:41
 Directory : /Users/dmakwt/development/game_client
-Total : 49 files,  2195 codes, 149 comments, 314 blanks, all 2658 lines
+Total : 50 files,  2668 codes, 151 comments, 331 blanks, all 3150 lines
 
 Languages
 +------------+------------+------------+------------+------------+------------+
 | language   | files      | code       | comment    | blank      | total      |
 +------------+------------+------------+------------+------------+------------+
-| Dart       |         30 |      1,766 |         60 |        248 |      2,074 |
+| Dart       |         31 |      2,236 |         62 |        265 |      2,563 |
 | JSON       |          2 |        145 |          0 |          2 |        147 |
 | XML        |          7 |        113 |         40 |          8 |        161 |
 | Groovy     |          3 |         84 |          6 |         22 |        112 |
-| YAML       |          1 |         52 |         42 |         20 |        114 |
+| YAML       |          1 |         55 |         42 |         20 |        117 |
 | Markdown   |          2 |         13 |          0 |          9 |         22 |
 | Swift      |          1 |         12 |          0 |          2 |         14 |
 | Properties |          2 |          9 |          1 |          2 |         12 |
@@ -18,102 +18,104 @@ Languages
 +------------+------------+------------+------------+------------+------------+
 
 Directories
-+-----------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
-| path                                                                                                | files      | code       | comment    | blank      | total      |
-+-----------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
-| .                                                                                                   |         49 |      2,195 |        149 |        314 |      2,658 |
-| android                                                                                             |         10 |        145 |         45 |         30 |        220 |
-| android/app                                                                                         |          6 |        101 |         41 |         18 |        160 |
-| android/app/src                                                                                     |          5 |         52 |         38 |          6 |         96 |
-| android/app/src/debug                                                                               |          1 |          4 |          3 |          1 |          8 |
-| android/app/src/main                                                                                |          3 |         44 |         32 |          4 |         80 |
-| android/app/src/main/res                                                                            |          2 |         13 |         16 |          3 |         32 |
-| android/app/src/main/res/drawable                                                                   |          1 |          4 |          7 |          2 |         13 |
-| android/app/src/main/res/values                                                                     |          1 |          9 |          9 |          1 |         19 |
-| android/app/src/profile                                                                             |          1 |          4 |          3 |          1 |          8 |
-| android/gradle                                                                                      |          1 |          5 |          1 |          1 |          7 |
-| android/gradle/wrapper                                                                              |          1 |          5 |          1 |          1 |          7 |
-| ios                                                                                                 |          7 |        222 |          2 |          9 |        233 |
-| ios/Runner                                                                                          |          7 |        222 |          2 |          9 |        233 |
-| ios/Runner/Assets.xcassets                                                                          |          3 |        148 |          0 |          4 |        152 |
-| ios/Runner/Assets.xcassets/AppIcon.appiconset                                                       |          1 |        122 |          0 |          1 |        123 |
-| ios/Runner/Assets.xcassets/LaunchImage.imageset                                                     |          2 |         26 |          0 |          3 |         29 |
-| ios/Runner/Base.lproj                                                                               |          2 |         61 |          2 |          2 |         65 |
-| lib                                                                                                 |         29 |      1,752 |         50 |        241 |      2,043 |
-| lib/models                                                                                          |          5 |        399 |          0 |         42 |        441 |
-| lib/services                                                                                        |          7 |        241 |         11 |         67 |        319 |
-| lib/services/api                                                                                    |          1 |        109 |          3 |         23 |        135 |
-| lib/services/socketio                                                                               |          1 |         24 |          1 |          8 |         33 |
-| lib/services/sounds                                                                                 |          2 |         49 |          6 |         10 |         65 |
-| lib/services/storage                                                                                |          2 |         34 |          0 |         20 |         54 |
-| lib/ui                                                                                              |         14 |        858 |         18 |         90 |        966 |
-| lib/ui/screens                                                                                      |          8 |        555 |         17 |         46 |        618 |
-| lib/ui/screens/home                                                                                 |          3 |        128 |         11 |         14 |        153 |
-| lib/ui/screens/home/widgets                                                                         |          2 |        110 |         11 |         12 |        133 |
-| lib/ui/screens/login                                                                                |          5 |        427 |          6 |         32 |        465 |
-| lib/ui/screens/login/widgets                                                                        |          2 |         68 |          0 |          7 |         75 |
-| lib/ui/shared                                                                                       |          5 |        241 |          0 |         31 |        272 |
-| lib/ui/shared/animations                                                                            |          1 |         76 |          0 |         15 |         91 |
-| lib/ui/shared/widgets                                                                               |          3 |        143 |          0 |         13 |        156 |
-| lib/ui/splash                                                                                       |          1 |         62 |          1 |         13 |         76 |
-| lib/view_models                                                                                     |          2 |        188 |         10 |         29 |        227 |
-| lib/view_models/home                                                                                |          1 |         22 |          0 |          6 |         28 |
-| lib/view_models/login                                                                               |          1 |        166 |         10 |         23 |        199 |
-| test                                                                                                |          1 |         14 |         10 |          7 |         31 |
-+-----------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
++---------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                                | files      | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                   |         50 |      2,668 |        151 |        331 |      3,150 |
+| android                                                                                                             |         10 |        145 |         45 |         30 |        220 |
+| android/app                                                                                                         |          6 |        101 |         41 |         18 |        160 |
+| android/app/src                                                                                                     |          5 |         52 |         38 |          6 |         96 |
+| android/app/src/debug                                                                                               |          1 |          4 |          3 |          1 |          8 |
+| android/app/src/main                                                                                                |          3 |         44 |         32 |          4 |         80 |
+| android/app/src/main/res                                                                                            |          2 |         13 |         16 |          3 |         32 |
+| android/app/src/main/res/drawable                                                                                   |          1 |          4 |          7 |          2 |         13 |
+| android/app/src/main/res/values                                                                                     |          1 |          9 |          9 |          1 |         19 |
+| android/app/src/profile                                                                                             |          1 |          4 |          3 |          1 |          8 |
+| android/gradle                                                                                                      |          1 |          5 |          1 |          1 |          7 |
+| android/gradle/wrapper                                                                                              |          1 |          5 |          1 |          1 |          7 |
+| ios                                                                                                                 |          7 |        222 |          2 |          9 |        233 |
+| ios/Runner                                                                                                          |          7 |        222 |          2 |          9 |        233 |
+| ios/Runner/Assets.xcassets                                                                                          |          3 |        148 |          0 |          4 |        152 |
+| ios/Runner/Assets.xcassets/AppIcon.appiconset                                                                       |          1 |        122 |          0 |          1 |        123 |
+| ios/Runner/Assets.xcassets/LaunchImage.imageset                                                                     |          2 |         26 |          0 |          3 |         29 |
+| ios/Runner/Base.lproj                                                                                               |          2 |         61 |          2 |          2 |         65 |
+| lib                                                                                                                 |         30 |      2,222 |         52 |        258 |      2,532 |
+| lib/models                                                                                                          |          5 |        407 |          0 |         44 |        451 |
+| lib/services                                                                                                        |          7 |        241 |         12 |         67 |        320 |
+| lib/services/api                                                                                                    |          1 |        109 |          3 |         23 |        135 |
+| lib/services/socketio                                                                                               |          1 |         24 |          1 |          8 |         33 |
+| lib/services/sounds                                                                                                 |          2 |         49 |          6 |         10 |         65 |
+| lib/services/storage                                                                                                |          2 |         34 |          0 |         20 |         54 |
+| lib/ui                                                                                                              |         15 |      1,324 |         19 |        105 |      1,448 |
+| lib/ui/screens                                                                                                      |          8 |        865 |         18 |         45 |        928 |
+| lib/ui/screens/home                                                                                                 |          3 |        438 |         12 |         13 |        463 |
+| lib/ui/screens/home/widgets                                                                                         |          1 |        280 |         10 |          4 |        294 |
+| lib/ui/screens/login                                                                                                |          5 |        427 |          6 |         32 |        465 |
+| lib/ui/screens/login/widgets                                                                                        |          2 |         68 |          0 |          7 |         75 |
+| lib/ui/shared                                                                                                       |          6 |        397 |          0 |         47 |        444 |
+| lib/ui/shared/animations                                                                                            |          1 |         76 |          0 |         15 |         91 |
+| lib/ui/shared/widgets                                                                                               |          4 |        297 |          0 |         29 |        326 |
+| lib/ui/shared/widgets/custom_progress_bar                                                                           |          1 |        154 |          0 |         16 |        170 |
+| lib/ui/splash                                                                                                       |          1 |         62 |          1 |         13 |         76 |
+| lib/view_models                                                                                                     |          2 |        184 |         10 |         29 |        223 |
+| lib/view_models/home                                                                                                |          1 |         18 |          0 |          6 |         24 |
+| lib/view_models/login                                                                                               |          1 |        166 |         10 |         23 |        199 |
+| test                                                                                                                |          1 |         14 |         10 |          7 |         31 |
++---------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
 
 Files
-+-----------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
-| filename                                                                                            | language   | code       | comment    | blank      | total      |
-+-----------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
-| /Users/dmakwt/development/game_client/README.md                                                     | Markdown   |         10 |          0 |          7 |         17 |
-| /Users/dmakwt/development/game_client/android/app/build.gradle                                      | Groovy     |         49 |          3 |         12 |         64 |
-| /Users/dmakwt/development/game_client/android/app/src/debug/AndroidManifest.xml                     | XML        |          4 |          3 |          1 |          8 |
-| /Users/dmakwt/development/game_client/android/app/src/main/AndroidManifest.xml                      | XML        |         31 |         16 |          1 |         48 |
-| /Users/dmakwt/development/game_client/android/app/src/main/res/drawable/launch_background.xml       | XML        |          4 |          7 |          2 |         13 |
-| /Users/dmakwt/development/game_client/android/app/src/main/res/values/styles.xml                    | XML        |          9 |          9 |          1 |         19 |
-| /Users/dmakwt/development/game_client/android/app/src/profile/AndroidManifest.xml                   | XML        |          4 |          3 |          1 |          8 |
-| /Users/dmakwt/development/game_client/android/build.gradle                                          | Groovy     |         27 |          0 |          5 |         32 |
-| /Users/dmakwt/development/game_client/android/gradle.properties                                     | Properties |          4 |          0 |          1 |          5 |
-| /Users/dmakwt/development/game_client/android/gradle/wrapper/gradle-wrapper.properties              | Properties |          5 |          1 |          1 |          7 |
-| /Users/dmakwt/development/game_client/android/settings.gradle                                       | Groovy     |          8 |          3 |          5 |         16 |
-| /Users/dmakwt/development/game_client/ios/Runner/AppDelegate.swift                                  | Swift      |         12 |          0 |          2 |         14 |
-| /Users/dmakwt/development/game_client/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json   | JSON       |        122 |          0 |          1 |        123 |
-| /Users/dmakwt/development/game_client/ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json | JSON       |         23 |          0 |          1 |         24 |
-| /Users/dmakwt/development/game_client/ios/Runner/Assets.xcassets/LaunchImage.imageset/README.md     | Markdown   |          3 |          0 |          2 |          5 |
-| /Users/dmakwt/development/game_client/ios/Runner/Base.lproj/LaunchScreen.storyboard                 | XML        |         36 |          1 |          1 |         38 |
-| /Users/dmakwt/development/game_client/ios/Runner/Base.lproj/Main.storyboard                         | XML        |         25 |          1 |          1 |         27 |
-| /Users/dmakwt/development/game_client/ios/Runner/Runner-Bridging-Header.h                           | C++        |          1 |          0 |          1 |          2 |
-| /Users/dmakwt/development/game_client/lib/main.dart                                                 | Dart       |         66 |         11 |         13 |         90 |
-| /Users/dmakwt/development/game_client/lib/models/profile.dart                                       | Dart       |        187 |          0 |         12 |        199 |
-| /Users/dmakwt/development/game_client/lib/models/used_items.dart                                    | Dart       |         97 |          0 |         11 |        108 |
-| /Users/dmakwt/development/game_client/lib/models/user.dart                                          | Dart       |         18 |          0 |          4 |         22 |
-| /Users/dmakwt/development/game_client/lib/models/user_checker.dart                                  | Dart       |         16 |          0 |          4 |         20 |
-| /Users/dmakwt/development/game_client/lib/models/user_skills.dart                                   | Dart       |         81 |          0 |         11 |         92 |
-| /Users/dmakwt/development/game_client/lib/services/api/user_api_service.dart                        | Dart       |        109 |          3 |         23 |        135 |
-| /Users/dmakwt/development/game_client/lib/services/service_locator.dart                             | Dart       |         25 |          1 |          6 |         32 |
-| /Users/dmakwt/development/game_client/lib/services/socketio/socket_service.dart                     | Dart       |         24 |          1 |          8 |         33 |
-| /Users/dmakwt/development/game_client/lib/services/sounds/sound_service.dart                        | Dart       |         14 |          0 |          3 |         17 |
-| /Users/dmakwt/development/game_client/lib/services/sounds/sound_service_implementation.dart         | Dart       |         35 |          6 |          7 |         48 |
-| /Users/dmakwt/development/game_client/lib/services/storage/storage_service.dart                     | Dart       |          9 |          0 |         10 |         19 |
-| /Users/dmakwt/development/game_client/lib/services/storage/storage_service_implementation.dart      | Dart       |         25 |          0 |         10 |         35 |
-| /Users/dmakwt/development/game_client/lib/ui/screens/home/home_screen.dart                          | Dart       |         18 |          0 |          2 |         20 |
-| /Users/dmakwt/development/game_client/lib/ui/screens/home/widgets/map_screen.dart                   | Dart       |         73 |          1 |          8 |         82 |
-| /Users/dmakwt/development/game_client/lib/ui/screens/home/widgets/status_appbar.dart                | Dart       |         37 |         10 |          4 |         51 |
-| /Users/dmakwt/development/game_client/lib/ui/screens/login/login_screen.dart                        | Dart       |        148 |          0 |         10 |        158 |
-| /Users/dmakwt/development/game_client/lib/ui/screens/login/manage_login_screen.dart                 | Dart       |         72 |          5 |          5 |         82 |
-| /Users/dmakwt/development/game_client/lib/ui/screens/login/register_screen.dart                     | Dart       |        139 |          1 |         10 |        150 |
-| /Users/dmakwt/development/game_client/lib/ui/screens/login/widgets/forget_password_dialog.dart      | Dart       |         56 |          0 |          5 |         61 |
-| /Users/dmakwt/development/game_client/lib/ui/screens/login/widgets/game_logo.dart                   | Dart       |         12 |          0 |          2 |         14 |
-| /Users/dmakwt/development/game_client/lib/ui/shared/animations/clicky_button_animation.dart         | Dart       |         76 |          0 |         15 |         91 |
-| /Users/dmakwt/development/game_client/lib/ui/shared/game_colors.dart                                | Dart       |         22 |          0 |          3 |         25 |
-| /Users/dmakwt/development/game_client/lib/ui/shared/widgets/custom_button.dart                      | Dart       |         35 |          0 |          4 |         39 |
-| /Users/dmakwt/development/game_client/lib/ui/shared/widgets/custom_long_button.dart                 | Dart       |         35 |          0 |          4 |         39 |
-| /Users/dmakwt/development/game_client/lib/ui/shared/widgets/input_field.dart                        | Dart       |         73 |          0 |          5 |         78 |
-| /Users/dmakwt/development/game_client/lib/ui/splash/splash_screen.dart                              | Dart       |         62 |          1 |         13 |         76 |
-| /Users/dmakwt/development/game_client/lib/view_models/home/status_appbar_viewmodel.dart             | Dart       |         22 |          0 |          6 |         28 |
-| /Users/dmakwt/development/game_client/lib/view_models/login/manage_login_screen_viewmodel.dart      | Dart       |        166 |         10 |         23 |        199 |
-| /Users/dmakwt/development/game_client/pubspec.yaml                                                  | YAML       |         52 |         42 |         20 |        114 |
-| /Users/dmakwt/development/game_client/test/widget_test.dart                                         | Dart       |         14 |         10 |          7 |         31 |
-| Total                                                                                               |            |      2,195 |        149 |        314 |      2,658 |
-+-----------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
++---------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                                                            | language   | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| /Users/dmakwt/development/game_client/README.md                                                                     | Markdown   |         10 |          0 |          7 |         17 |
+| /Users/dmakwt/development/game_client/android/app/build.gradle                                                      | Groovy     |         49 |          3 |         12 |         64 |
+| /Users/dmakwt/development/game_client/android/app/src/debug/AndroidManifest.xml                                     | XML        |          4 |          3 |          1 |          8 |
+| /Users/dmakwt/development/game_client/android/app/src/main/AndroidManifest.xml                                      | XML        |         31 |         16 |          1 |         48 |
+| /Users/dmakwt/development/game_client/android/app/src/main/res/drawable/launch_background.xml                       | XML        |          4 |          7 |          2 |         13 |
+| /Users/dmakwt/development/game_client/android/app/src/main/res/values/styles.xml                                    | XML        |          9 |          9 |          1 |         19 |
+| /Users/dmakwt/development/game_client/android/app/src/profile/AndroidManifest.xml                                   | XML        |          4 |          3 |          1 |          8 |
+| /Users/dmakwt/development/game_client/android/build.gradle                                                          | Groovy     |         27 |          0 |          5 |         32 |
+| /Users/dmakwt/development/game_client/android/gradle.properties                                                     | Properties |          4 |          0 |          1 |          5 |
+| /Users/dmakwt/development/game_client/android/gradle/wrapper/gradle-wrapper.properties                              | Properties |          5 |          1 |          1 |          7 |
+| /Users/dmakwt/development/game_client/android/settings.gradle                                                       | Groovy     |          8 |          3 |          5 |         16 |
+| /Users/dmakwt/development/game_client/ios/Runner/AppDelegate.swift                                                  | Swift      |         12 |          0 |          2 |         14 |
+| /Users/dmakwt/development/game_client/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json                   | JSON       |        122 |          0 |          1 |        123 |
+| /Users/dmakwt/development/game_client/ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json                 | JSON       |         23 |          0 |          1 |         24 |
+| /Users/dmakwt/development/game_client/ios/Runner/Assets.xcassets/LaunchImage.imageset/README.md                     | Markdown   |          3 |          0 |          2 |          5 |
+| /Users/dmakwt/development/game_client/ios/Runner/Base.lproj/LaunchScreen.storyboard                                 | XML        |         36 |          1 |          1 |         38 |
+| /Users/dmakwt/development/game_client/ios/Runner/Base.lproj/Main.storyboard                                         | XML        |         25 |          1 |          1 |         27 |
+| /Users/dmakwt/development/game_client/ios/Runner/Runner-Bridging-Header.h                                           | C++        |          1 |          0 |          1 |          2 |
+| /Users/dmakwt/development/game_client/lib/main.dart                                                                 | Dart       |         66 |         11 |         13 |         90 |
+| /Users/dmakwt/development/game_client/lib/models/profile.dart                                                       | Dart       |        195 |          0 |         14 |        209 |
+| /Users/dmakwt/development/game_client/lib/models/used_items.dart                                                    | Dart       |         97 |          0 |         11 |        108 |
+| /Users/dmakwt/development/game_client/lib/models/user.dart                                                          | Dart       |         18 |          0 |          4 |         22 |
+| /Users/dmakwt/development/game_client/lib/models/user_checker.dart                                                  | Dart       |         16 |          0 |          4 |         20 |
+| /Users/dmakwt/development/game_client/lib/models/user_skills.dart                                                   | Dart       |         81 |          0 |         11 |         92 |
+| /Users/dmakwt/development/game_client/lib/services/api/user_api_service.dart                                        | Dart       |        109 |          3 |         23 |        135 |
+| /Users/dmakwt/development/game_client/lib/services/service_locator.dart                                             | Dart       |         25 |          2 |          6 |         33 |
+| /Users/dmakwt/development/game_client/lib/services/socketio/socket_service.dart                                     | Dart       |         24 |          1 |          8 |         33 |
+| /Users/dmakwt/development/game_client/lib/services/sounds/sound_service.dart                                        | Dart       |         14 |          0 |          3 |         17 |
+| /Users/dmakwt/development/game_client/lib/services/sounds/sound_service_implementation.dart                         | Dart       |         35 |          6 |          7 |         48 |
+| /Users/dmakwt/development/game_client/lib/services/storage/storage_service.dart                                     | Dart       |          9 |          0 |         10 |         19 |
+| /Users/dmakwt/development/game_client/lib/services/storage/storage_service_implementation.dart                      | Dart       |         25 |          0 |         10 |         35 |
+| /Users/dmakwt/development/game_client/lib/ui/screens/home/home_screen.dart                                          | Dart       |         69 |          2 |          5 |         76 |
+| /Users/dmakwt/development/game_client/lib/ui/screens/home/main_screen.dart                                          | Dart       |         89 |          0 |          4 |         93 |
+| /Users/dmakwt/development/game_client/lib/ui/screens/home/widgets/status_appbar.dart                                | Dart       |        280 |         10 |          4 |        294 |
+| /Users/dmakwt/development/game_client/lib/ui/screens/login/login_screen.dart                                        | Dart       |        148 |          0 |         10 |        158 |
+| /Users/dmakwt/development/game_client/lib/ui/screens/login/manage_login_screen.dart                                 | Dart       |         72 |          5 |          5 |         82 |
+| /Users/dmakwt/development/game_client/lib/ui/screens/login/register_screen.dart                                     | Dart       |        139 |          1 |         10 |        150 |
+| /Users/dmakwt/development/game_client/lib/ui/screens/login/widgets/forget_password_dialog.dart                      | Dart       |         56 |          0 |          5 |         61 |
+| /Users/dmakwt/development/game_client/lib/ui/screens/login/widgets/game_logo.dart                                   | Dart       |         12 |          0 |          2 |         14 |
+| /Users/dmakwt/development/game_client/lib/ui/shared/animations/clicky_button_animation.dart                         | Dart       |         76 |          0 |         15 |         91 |
+| /Users/dmakwt/development/game_client/lib/ui/shared/game_colors.dart                                                | Dart       |         24 |          0 |          3 |         27 |
+| /Users/dmakwt/development/game_client/lib/ui/shared/widgets/custom_button.dart                                      | Dart       |         35 |          0 |          4 |         39 |
+| /Users/dmakwt/development/game_client/lib/ui/shared/widgets/custom_long_button.dart                                 | Dart       |         35 |          0 |          4 |         39 |
+| /Users/dmakwt/development/game_client/lib/ui/shared/widgets/custom_progress_bar/flutter_animation_progress_bar.dart | Dart       |        154 |          0 |         16 |        170 |
+| /Users/dmakwt/development/game_client/lib/ui/shared/widgets/input_field.dart                                        | Dart       |         73 |          0 |          5 |         78 |
+| /Users/dmakwt/development/game_client/lib/ui/splash/splash_screen.dart                                              | Dart       |         62 |          1 |         13 |         76 |
+| /Users/dmakwt/development/game_client/lib/view_models/home/status_appbar_viewmodel.dart                             | Dart       |         18 |          0 |          6 |         24 |
+| /Users/dmakwt/development/game_client/lib/view_models/login/manage_login_screen_viewmodel.dart                      | Dart       |        166 |         10 |         23 |        199 |
+| /Users/dmakwt/development/game_client/pubspec.yaml                                                                  | YAML       |         55 |         42 |         20 |        117 |
+| /Users/dmakwt/development/game_client/test/widget_test.dart                                                         | Dart       |         14 |         10 |          7 |         31 |
+| Total                                                                                                               |            |      2,668 |        151 |        331 |      3,150 |
++---------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+

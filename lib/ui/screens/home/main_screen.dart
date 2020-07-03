@@ -26,7 +26,7 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: GameColors.backgroundColor,
+      backgroundColor: GameColors.backgroundColor3,
       body: SafeArea(
         child: Stack(
           children: <Widget>[
@@ -42,41 +42,47 @@ class _MainScreenState extends State<MainScreen> {
         decoration: BoxDecoration(
           border: Border(
             top: BorderSide(
-              color: GameColors.goldColor.withOpacity(0.65),
+              color: GameColors.goldColor,
               width: 3.5,
             ),
           ),
         ),
         child: Stack(
           children: <Widget>[
-            BottomNavigationBar(
-              type: BottomNavigationBarType.fixed,
-              currentIndex: 0,
-              backgroundColor: Colors.transparent,
-              selectedItemColor: Colors.white,
-              unselectedItemColor: Colors.white30,
-              items: <BottomNavigationBarItem>[
-                _buildBottomNavigationBar(
-                  image: 'home',
-                  text: 'Home',
-                ),
-                _buildBottomNavigationBar(
-                  image: 'inventory',
-                  text: 'Inventory',
-                ),
-                _buildBottomNavigationBar(
-                  image: 'menu',
-                  text: 'Messages',
-                ),
-                _buildBottomNavigationBar(
-                  image: 'trade',
-                  text: 'Clan',
-                ),
-                _buildBottomNavigationBar(
-                  image: 'options',
-                  text: 'Settings',
-                ),
-              ],
+            Theme(
+              data: ThemeData(
+                splashColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+              ),
+              child: BottomNavigationBar(
+                type: BottomNavigationBarType.fixed,
+                currentIndex: 0,
+                backgroundColor: Colors.transparent,
+                selectedItemColor: Colors.white,
+                unselectedItemColor: Colors.white30,
+                items: <BottomNavigationBarItem>[
+                  _buildBottomNavigationBar(
+                    image: 'home',
+                    text: 'Home',
+                  ),
+                  _buildBottomNavigationBar(
+                    image: 'inventory',
+                    text: 'Inventory',
+                  ),
+                  _buildBottomNavigationBar(
+                    image: 'menu',
+                    text: 'Messages',
+                  ),
+                  _buildBottomNavigationBar(
+                    image: 'trade',
+                    text: 'Clan',
+                  ),
+                  _buildBottomNavigationBar(
+                    image: 'options',
+                    text: 'Settings',
+                  ),
+                ],
+              ),
             ),
           ],
         ),

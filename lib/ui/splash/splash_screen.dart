@@ -18,7 +18,6 @@ class _SplashScreenState extends State<SplashScreen> {
 
   Future<void> checkAuth() async {
     bool isLogin = await checkUserLoginOrNot();
-    print('checkAuth function $isLogin');
 
     if (isLogin) {
       // Socket IO

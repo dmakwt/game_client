@@ -1,10 +1,10 @@
 # Details
 
-Date : 2020-06-18 21:25:09
+Date : 2020-06-26 06:53:41
 
 Directory /Users/dmakwt/development/game_client
 
-Total : 49 files,  2195 codes, 149 comments, 314 blanks, all 2658 lines
+Total : 50 files,  2668 codes, 151 comments, 331 blanks, all 3150 lines
 
 [summary](results.md)
 
@@ -30,35 +30,36 @@ Total : 49 files,  2195 codes, 149 comments, 314 blanks, all 2658 lines
 | [ios/Runner/Base.lproj/Main.storyboard](/ios/Runner/Base.lproj/Main.storyboard) | XML | 25 | 1 | 1 | 27 |
 | [ios/Runner/Runner-Bridging-Header.h](/ios/Runner/Runner-Bridging-Header.h) | C++ | 1 | 0 | 1 | 2 |
 | [lib/main.dart](/lib/main.dart) | Dart | 66 | 11 | 13 | 90 |
-| [lib/models/profile.dart](/lib/models/profile.dart) | Dart | 187 | 0 | 12 | 199 |
+| [lib/models/profile.dart](/lib/models/profile.dart) | Dart | 195 | 0 | 14 | 209 |
 | [lib/models/used_items.dart](/lib/models/used_items.dart) | Dart | 97 | 0 | 11 | 108 |
 | [lib/models/user.dart](/lib/models/user.dart) | Dart | 18 | 0 | 4 | 22 |
 | [lib/models/user_checker.dart](/lib/models/user_checker.dart) | Dart | 16 | 0 | 4 | 20 |
 | [lib/models/user_skills.dart](/lib/models/user_skills.dart) | Dart | 81 | 0 | 11 | 92 |
 | [lib/services/api/user_api_service.dart](/lib/services/api/user_api_service.dart) | Dart | 109 | 3 | 23 | 135 |
-| [lib/services/service_locator.dart](/lib/services/service_locator.dart) | Dart | 25 | 1 | 6 | 32 |
+| [lib/services/service_locator.dart](/lib/services/service_locator.dart) | Dart | 25 | 2 | 6 | 33 |
 | [lib/services/socketio/socket_service.dart](/lib/services/socketio/socket_service.dart) | Dart | 24 | 1 | 8 | 33 |
 | [lib/services/sounds/sound_service.dart](/lib/services/sounds/sound_service.dart) | Dart | 14 | 0 | 3 | 17 |
 | [lib/services/sounds/sound_service_implementation.dart](/lib/services/sounds/sound_service_implementation.dart) | Dart | 35 | 6 | 7 | 48 |
 | [lib/services/storage/storage_service.dart](/lib/services/storage/storage_service.dart) | Dart | 9 | 0 | 10 | 19 |
 | [lib/services/storage/storage_service_implementation.dart](/lib/services/storage/storage_service_implementation.dart) | Dart | 25 | 0 | 10 | 35 |
-| [lib/ui/screens/home/home_screen.dart](/lib/ui/screens/home/home_screen.dart) | Dart | 18 | 0 | 2 | 20 |
-| [lib/ui/screens/home/widgets/map_screen.dart](/lib/ui/screens/home/widgets/map_screen.dart) | Dart | 73 | 1 | 8 | 82 |
-| [lib/ui/screens/home/widgets/status_appbar.dart](/lib/ui/screens/home/widgets/status_appbar.dart) | Dart | 37 | 10 | 4 | 51 |
+| [lib/ui/screens/home/home_screen.dart](/lib/ui/screens/home/home_screen.dart) | Dart | 69 | 2 | 5 | 76 |
+| [lib/ui/screens/home/main_screen.dart](/lib/ui/screens/home/main_screen.dart) | Dart | 89 | 0 | 4 | 93 |
+| [lib/ui/screens/home/widgets/status_appbar.dart](/lib/ui/screens/home/widgets/status_appbar.dart) | Dart | 280 | 10 | 4 | 294 |
 | [lib/ui/screens/login/login_screen.dart](/lib/ui/screens/login/login_screen.dart) | Dart | 148 | 0 | 10 | 158 |
 | [lib/ui/screens/login/manage_login_screen.dart](/lib/ui/screens/login/manage_login_screen.dart) | Dart | 72 | 5 | 5 | 82 |
 | [lib/ui/screens/login/register_screen.dart](/lib/ui/screens/login/register_screen.dart) | Dart | 139 | 1 | 10 | 150 |
 | [lib/ui/screens/login/widgets/forget_password_dialog.dart](/lib/ui/screens/login/widgets/forget_password_dialog.dart) | Dart | 56 | 0 | 5 | 61 |
 | [lib/ui/screens/login/widgets/game_logo.dart](/lib/ui/screens/login/widgets/game_logo.dart) | Dart | 12 | 0 | 2 | 14 |
 | [lib/ui/shared/animations/clicky_button_animation.dart](/lib/ui/shared/animations/clicky_button_animation.dart) | Dart | 76 | 0 | 15 | 91 |
-| [lib/ui/shared/game_colors.dart](/lib/ui/shared/game_colors.dart) | Dart | 22 | 0 | 3 | 25 |
+| [lib/ui/shared/game_colors.dart](/lib/ui/shared/game_colors.dart) | Dart | 24 | 0 | 3 | 27 |
 | [lib/ui/shared/widgets/custom_button.dart](/lib/ui/shared/widgets/custom_button.dart) | Dart | 35 | 0 | 4 | 39 |
 | [lib/ui/shared/widgets/custom_long_button.dart](/lib/ui/shared/widgets/custom_long_button.dart) | Dart | 35 | 0 | 4 | 39 |
+| [lib/ui/shared/widgets/custom_progress_bar/flutter_animation_progress_bar.dart](/lib/ui/shared/widgets/custom_progress_bar/flutter_animation_progress_bar.dart) | Dart | 154 | 0 | 16 | 170 |
 | [lib/ui/shared/widgets/input_field.dart](/lib/ui/shared/widgets/input_field.dart) | Dart | 73 | 0 | 5 | 78 |
 | [lib/ui/splash/splash_screen.dart](/lib/ui/splash/splash_screen.dart) | Dart | 62 | 1 | 13 | 76 |
-| [lib/view_models/home/status_appbar_viewmodel.dart](/lib/view_models/home/status_appbar_viewmodel.dart) | Dart | 22 | 0 | 6 | 28 |
+| [lib/view_models/home/status_appbar_viewmodel.dart](/lib/view_models/home/status_appbar_viewmodel.dart) | Dart | 18 | 0 | 6 | 24 |
 | [lib/view_models/login/manage_login_screen_viewmodel.dart](/lib/view_models/login/manage_login_screen_viewmodel.dart) | Dart | 166 | 10 | 23 | 199 |
-| [pubspec.yaml](/pubspec.yaml) | YAML | 52 | 42 | 20 | 114 |
+| [pubspec.yaml](/pubspec.yaml) | YAML | 55 | 42 | 20 | 117 |
 | [test/widget_test.dart](/test/widget_test.dart) | Dart | 14 | 10 | 7 | 31 |
 
 [summary](results.md)
