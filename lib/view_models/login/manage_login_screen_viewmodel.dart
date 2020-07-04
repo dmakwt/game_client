@@ -110,13 +110,7 @@ class ManageLoginScreenViewModel extends ChangeNotifier {
       );
       BotToast.closeAllLoading();
     } catch (e) {
-      logger.e(e.body);
-      BotToast.showText(
-        text: e.body,
-        duration: Duration(seconds: 3),
-        clickClose: true,
-        align: Alignment.topCenter,
-      );
+      logger.e(e);
       BotToast.closeAllLoading();
     }
   }
