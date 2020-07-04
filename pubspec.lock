@@ -8,6 +8,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.1"
+  ansicolor:
+    dependency: transitive
+    description:
+      name: ansicolor
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.2"
   archive:
     dependency: transitive
     description:
@@ -64,6 +71,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.0"
+  bot_toast:
+    dependency: "direct main"
+    description:
+      name: bot_toast
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.0.0"
   cached_network_image:
     dependency: "direct main"
     description:
@@ -280,13 +294,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.6.2"
-  loading_overlay:
-    dependency: "direct main"
-    description:
-      name: loading_overlay
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.2.1"
   logger:
     dependency: "direct main"
     description:
@@ -406,6 +413,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.2"
+  print_color:
+    dependency: "direct main"
+    description:
+      name: print_color
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.2.7"
   process:
     dependency: transitive
     description:

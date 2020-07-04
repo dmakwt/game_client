@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:game_client/services/api/user_api_service.dart';
 import 'package:game_client/services/logger.dart';
@@ -8,7 +9,9 @@ import 'package:game_client/services/socketio/socket_service.dart';
 import 'package:game_client/services/sounds/sound_service.dart';
 import 'package:game_client/services/storage/storage_service.dart';
 import 'package:game_client/ui/shared/game_colors.dart';
+import 'package:game_client/ui/shared/loader.dart';
 import 'package:game_client/view_models/home/status_appbar_viewmodel.dart';
+import 'package:print_color/print_color.dart';
 
 class ManageLoginScreenViewModel extends ChangeNotifier {
   final SoundService _soundService = serviceLocator<SoundService>();
@@ -34,20 +37,10 @@ class ManageLoginScreenViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  void turnLoading() {
-    if (isLoading) {
-      isLoading = false;
-      notifyListeners();
-    } else {
-      isLoading = true;
-      notifyListeners();
-    }
-  }
-
   Future<void> signUpUser(context,
       {String username, String email, String password}) async {
     try {
-      turnLoading();
+      Loader.showLoading();
       final data = await _userApiService.userSignUp(
         username: username,
         email: email,
@@ -74,23 +67,22 @@ class ManageLoginScreenViewModel extends ChangeNotifier {
           content: Text('Connection Error'),
         ),
       );
-      turnLoading();
+      BotToast.closeAllLoading();
     } catch (e) {
-      showDialog(
-        context: context,
-        builder: (context) => AlertDialog(
-          content: Text(
-            e.body.toString() ?? '',
-          ),
-        ),
+      BotToast.showText(
+        text: e.body,
+        duration: Duration(seconds: 3),
+        clickClose: true,
+        align: Alignment.topCenter,
       );
-      turnLoading();
+
+      BotToast.closeAllLoading();
     }
   }
 
   Future<void> signInUser(context, {String email, String password}) async {
     try {
-      turnLoading();
+      Loader.showLoading();
       final data = await _userApiService.userSignIn(
         email: email,
         password: password,
@@ -116,18 +108,16 @@ class ManageLoginScreenViewModel extends ChangeNotifier {
           content: Text('Connection Error'),
         ),
       );
-      turnLoading();
+      BotToast.closeAllLoading();
     } catch (e) {
-      print(e);
-      // showDialog(
-      //   context: context,
-      //   builder: (context) => AlertDialog(
-      //     content: Text(
-      //       e.body.toString() ?? '',
-      //     ),
-      //   ),
-      // );
-      turnLoading();
+      logger.e(e.body);
+      BotToast.showText(
+        text: e.body,
+        duration: Duration(seconds: 3),
+        clickClose: true,
+        align: Alignment.topCenter,
+      );
+      BotToast.closeAllLoading();
     }
   }
 
@@ -140,17 +130,17 @@ class ManageLoginScreenViewModel extends ChangeNotifier {
     final usernameID = _storageService.getUsernameID();
 
     if (token != null || usernameID != null) {
-      turnLoading();
+      Loader.showLoading();
 
       await _storageService.setToken('');
       await _storageService.setUsernameID('');
 
       await Navigator.of(context).pushReplacementNamed('/');
-      turnLoading();
+      BotToast.closeAllLoading();
     } else {
-      turnLoading();
+      Loader.showLoading();
       await Navigator.of(context).pushReplacementNamed('/');
-      turnLoading();
+      BotToast.closeAllLoading();
     }
   }
 
@@ -158,14 +148,14 @@ class ManageLoginScreenViewModel extends ChangeNotifier {
       {@required String email}) async {
     try {
       Navigator.of(context).pop();
-      turnLoading();
+      Loader.showLoading();
       final url = await _userApiService.resetPassword(email: email);
 
       logger.i(url);
 
       //TODO: Need to show dialog that to tell the use to check his email
 
-      turnLoading();
+      BotToast.closeAllLoading();
     } on SocketException catch (_) {
       showDialog(
         context: context,

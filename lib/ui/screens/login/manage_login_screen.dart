@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:loading_overlay/loading_overlay.dart';
+import 'package:game_client/ui/shared/loader.dart';
 import 'package:provider/provider.dart';
 
 import 'package:game_client/services/service_locator.dart';
@@ -27,36 +27,29 @@ class ManageLoginScreen extends StatelessWidget {
           key: _scaffoldKey,
           backgroundColor: GameColors.backgroundColor,
           resizeToAvoidBottomPadding: false,
-          body: LoadingOverlay(
-            color: Colors.black,
-            progressIndicator: CircularProgressIndicator(
-              backgroundColor: GameColors.darkOrange,
-            ),
-            isLoading: model.isLoading,
-            child: Stack(
-              children: <Widget>[
-                PageView(
-                  controller: pageViewController,
-                  children: <Widget>[
-                    LoginScreen(
-                      pageViewController: pageViewController,
-                      model: model,
-                    ),
-                    RegisterScreen(
-                      pageViewController: pageViewController,
-                      model: model,
-                    ),
-                  ],
-                ),
-                Align(
-                  alignment: Alignment.bottomLeft,
-                  child: Image.asset(
-                    'assets/frames/pattern.png',
-                    scale: 5,
+          body: Stack(
+            children: <Widget>[
+              PageView(
+                controller: pageViewController,
+                children: <Widget>[
+                  LoginScreen(
+                    pageViewController: pageViewController,
+                    model: model,
                   ),
+                  RegisterScreen(
+                    pageViewController: pageViewController,
+                    model: model,
+                  ),
+                ],
+              ),
+              Align(
+                alignment: Alignment.bottomLeft,
+                child: Image.asset(
+                  'assets/frames/pattern.png',
+                  scale: 5,
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
           floatingActionButton: Padding(
             padding: const EdgeInsets.only(bottom: 25, right: 8),

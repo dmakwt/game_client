@@ -1,3 +1,4 @@
+import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:game_client/ui/screens/home/main_screen.dart';
@@ -44,7 +45,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     SystemChrome.setEnabledSystemUIOverlays([]);
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-
+    final botToastBuilder = BotToastInit();
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Game',
@@ -59,20 +60,26 @@ class _MyAppState extends State<MyApp> {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      builder: (context, widget) => ResponsiveWrapper.builder(
-        BouncingScrollWrapper.builder(context, widget),
-        maxWidth: 1200,
-        minWidth: 450,
-        defaultScale: true,
-        breakpoints: [
-          ResponsiveBreakpoint.autoScale(480, name: MOBILE),
-          ResponsiveBreakpoint.autoScale(800, name: TABLET),
-          ResponsiveBreakpoint.autoScale(1000, name: DESKTOP),
-        ],
-        background: Container(
-          color: Color(0xFFF5F5F5),
-        ),
-      ),
+      builder: (context, child) {
+        child = ResponsiveWrapper.builder(
+          BouncingScrollWrapper.builder(context, child),
+          maxWidth: 1200,
+          minWidth: 450,
+          defaultScale: true,
+          breakpoints: [
+            ResponsiveBreakpoint.autoScale(480, name: MOBILE),
+            ResponsiveBreakpoint.autoScale(800, name: TABLET),
+            ResponsiveBreakpoint.autoScale(1000, name: DESKTOP),
+          ],
+          background: Container(
+            color: Color(0xFFF5F5F5),
+          ),
+        );
+
+        child = botToastBuilder(context, child);
+        return child;
+      },
+      navigatorObservers: [BotToastNavigatorObserver()],
       routes: {
         '/': (context) => SplashScreen(),
         '/login': (context) => ManageLoginScreen(),
