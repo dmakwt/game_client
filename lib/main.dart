@@ -1,17 +1,15 @@
 import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:game_client/ui/screens/home/main_screen.dart';
 import 'package:logger/logger.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:game_client/services/sounds/sound_service.dart';
-import 'package:game_client/ui/screens/login/manage_login_screen.dart';
 import 'package:game_client/ui/shared/game_colors.dart';
-import 'package:game_client/ui/splash/splash_screen.dart';
 
 import 'services/service_locator.dart';
+import 'router.dart' as router;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -34,7 +32,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    playSound();
+    // playSound();
   }
 
   void playSound() async {
@@ -46,6 +44,7 @@ class _MyAppState extends State<MyApp> {
     SystemChrome.setEnabledSystemUIOverlays([]);
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     final botToastBuilder = BotToastInit();
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Game',
@@ -80,11 +79,8 @@ class _MyAppState extends State<MyApp> {
         return child;
       },
       navigatorObservers: [BotToastNavigatorObserver()],
-      routes: {
-        '/': (context) => SplashScreen(),
-        '/login': (context) => ManageLoginScreen(),
-        '/home': (context) => MainScreen(),
-      },
+      onGenerateRoute: router.generateRoute,
+      initialRoute: router.initialRoute,
     );
   }
 }

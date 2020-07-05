@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:game_client/ui/shared/loader.dart';
 import 'package:provider/provider.dart';
 
 import 'package:game_client/services/service_locator.dart';

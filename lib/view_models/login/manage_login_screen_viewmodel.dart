@@ -58,7 +58,7 @@ class ManageLoginScreenViewModel extends ChangeNotifier {
 
         await model.updateData(data.profile);
 
-        Navigator.of(context).pushReplacementNamed('/home');
+        Navigator.pushReplacementNamed(context, '/home');
       } else {}
     } on SocketException catch (_) {
       showDialog(
@@ -129,11 +129,11 @@ class ManageLoginScreenViewModel extends ChangeNotifier {
       await _storageService.setToken('');
       await _storageService.setUsernameID('');
 
-      await Navigator.of(context).pushReplacementNamed('/');
+      Navigator.pushReplacementNamed(context, '/');
       BotToast.closeAllLoading();
     } else {
       Loader.showLoading();
-      await Navigator.of(context).pushReplacementNamed('/');
+      Navigator.pushReplacementNamed(context, '/');
       BotToast.closeAllLoading();
     }
   }
