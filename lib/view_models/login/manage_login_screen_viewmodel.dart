@@ -8,10 +8,8 @@ import 'package:game_client/services/service_locator.dart';
 import 'package:game_client/services/socketio/socket_service.dart';
 import 'package:game_client/services/sounds/sound_service.dart';
 import 'package:game_client/services/storage/storage_service.dart';
-import 'package:game_client/ui/shared/game_colors.dart';
 import 'package:game_client/ui/shared/loader.dart';
 import 'package:game_client/view_models/home/status_appbar_viewmodel.dart';
-import 'package:print_color/print_color.dart';
 
 class ManageLoginScreenViewModel extends ChangeNotifier {
   final SoundService _soundService = serviceLocator<SoundService>();
@@ -131,6 +129,11 @@ class ManageLoginScreenViewModel extends ChangeNotifier {
 
       Navigator.pushReplacementNamed(context, '/');
       BotToast.closeAllLoading();
+      BotToast.showText(
+        align: Alignment.center,
+        duration: Duration(seconds: 5),
+        text: 'Please, restart the app',
+      );
     } else {
       Loader.showLoading();
       Navigator.pushReplacementNamed(context, '/');
