@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:game_client/services/api/user_api_service.dart';
-import 'package:game_client/services/logger.dart';
+import 'package:game_client/logger.dart';
 import 'package:game_client/services/service_locator.dart';
 import 'package:game_client/services/socketio/socket_service.dart';
 import 'package:game_client/services/sounds/sound_service.dart';

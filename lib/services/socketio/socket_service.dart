@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:game_client/models/profile.dart';
-import 'package:game_client/services/logger.dart';
+import 'package:game_client/logger.dart';
 import 'package:game_client/services/service_locator.dart';
 import 'package:game_client/view_models/home/status_appbar_viewmodel.dart';
 import 'package:socket_io_client/socket_io_client.dart' as IO;
