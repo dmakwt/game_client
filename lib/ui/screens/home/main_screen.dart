@@ -56,7 +56,7 @@ class _MainScreenState extends State<MainScreen> {
               ),
               child: BottomNavigationBar(
                 type: BottomNavigationBarType.fixed,
-                currentIndex: 0,
+                currentIndex: 1,
                 backgroundColor: Colors.transparent,
                 selectedItemColor: Colors.white,
                 unselectedItemColor: Colors.white30,

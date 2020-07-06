@@ -18,8 +18,8 @@ class ManageLoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<ManageLoginScreenViewModel>(
-      create: (context) => model,
+    return ChangeNotifierProvider<ManageLoginScreenViewModel>.value(
+      value: model,
       child: Consumer<ManageLoginScreenViewModel>(
           builder: (context, model, widget) {
         return Scaffold(
