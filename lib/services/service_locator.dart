@@ -28,7 +28,8 @@ Future<void> setupServiceLocator(
 
   // View Models
   serviceLocator.registerLazySingleton<StatusAppbarViewModel>(
-      () => StatusAppbarViewModel());
+    () => StatusAppbarViewModel(),
+  );
 
   serviceLocator.registerFactory<ManageLoginScreenViewModel>(
       () => ManageLoginScreenViewModel());

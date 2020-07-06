@@ -129,11 +129,14 @@ class ManageLoginScreenViewModel extends ChangeNotifier {
 
       Navigator.pushReplacementNamed(context, '/');
       BotToast.closeAllLoading();
-      BotToast.showText(
-        align: Alignment.center,
-        duration: Duration(seconds: 5),
-        text: 'Please, restart the app',
-      );
+
+      if (serviceLocator.isRegistered(
+          instance: serviceLocator<StatusAppbarViewModel>())) {
+        logger.i('Reset StatusAppbarViewModel');
+        serviceLocator.resetLazySingleton(
+          instance: serviceLocator<StatusAppbarViewModel>(),
+        );
+      }
     } else {
       Loader.showLoading();
       Navigator.pushReplacementNamed(context, '/');
