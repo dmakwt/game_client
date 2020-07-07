@@ -18,22 +18,14 @@ void main() async {
 
   // Logger.level = Level.info;
 
+  SystemChrome.setEnabledSystemUIOverlays([]);
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+
   runApp(MyApp());
 }
 
-class MyApp extends StatefulWidget {
-  @override
-  _MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
+class MyApp extends StatelessWidget {
   final SoundService _soundService = serviceLocator<SoundService>();
-
-  @override
-  void initState() {
-    super.initState();
-    // playSound();
-  }
 
   void playSound() async {
     await _soundService.playBackgroundMusic();
@@ -41,8 +33,6 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setEnabledSystemUIOverlays([]);
-    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     final botToastBuilder = BotToastInit();
 
     return MaterialApp(

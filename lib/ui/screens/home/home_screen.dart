@@ -1,26 +1,19 @@
 import 'package:diagonal_scrollview/diagonal_scrollview.dart';
 import 'package:flutter/material.dart';
 import 'package:game_client/services/service_locator.dart';
+import 'package:game_client/ui/screens/home/widgets/status_appbar.dart';
+import 'package:game_client/ui/shared/game_colors.dart';
 import 'package:game_client/view_models/login/manage_login_screen_viewmodel.dart';
 
-class MapScreen extends StatefulWidget {
-  @override
-  _MapScreenState createState() => _MapScreenState();
-}
-
-class _MapScreenState extends State<MapScreen> {
+class HomeScreen extends StatelessWidget {
   // DiagonalScrollViewController _controller;
   final ManageLoginScreenViewModel _manageLoginScreenViewModel =
       serviceLocator<ManageLoginScreenViewModel>();
 
   @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: GameColors.backgroundColor3,
       body: Stack(
         children: <Widget>[
           DiagonalScrollView(

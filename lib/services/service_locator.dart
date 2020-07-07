@@ -15,8 +15,7 @@ import 'package:game_client/view_models/login/manage_login_screen_viewmodel.dart
 
 GetIt serviceLocator = GetIt.instance;
 
-Future<void> setupServiceLocator(
-    {@required SharedPreferences sharedPreferences}) async {
+void setupServiceLocator({@required SharedPreferences sharedPreferences}) {
   // Services
   serviceLocator.registerLazySingleton<StorageService>(
     () => StorageServiceImpl(sharedPreferences: sharedPreferences),

@@ -109,6 +109,10 @@ class ManageLoginScreenViewModel extends ChangeNotifier {
       BotToast.closeAllLoading();
     } catch (e) {
       logger.e(e);
+      BotToast.showText(
+        align: Alignment.center,
+        text: e.body.toString(),
+      );
       BotToast.closeAllLoading();
     }
   }
@@ -130,6 +134,7 @@ class ManageLoginScreenViewModel extends ChangeNotifier {
       Navigator.pushReplacementNamed(context, '/');
       BotToast.closeAllLoading();
 
+      // Testing if a StatusAppbarViewModel is already registered then reset it
       if (serviceLocator.isRegistered(
           instance: serviceLocator<StatusAppbarViewModel>())) {
         logger.i('Reset StatusAppbarViewModel');

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:game_client/ui/screens/home/home_screen.dart';
+import 'package:game_client/ui/screens/home/inventory_screen.dart';
 import 'package:game_client/ui/screens/home/widgets/status_appbar.dart';
 import 'package:game_client/ui/shared/game_colors.dart';
 
@@ -9,6 +10,8 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
+  int _currentIndex = 0;
+
   BottomNavigationBarItem _buildBottomNavigationBar(
       {String image, String text}) {
     return BottomNavigationBarItem(
@@ -23,6 +26,11 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 
+  final tabs = [
+    HomeScreen(),
+    InventoryScreen(),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +38,7 @@ class _MainScreenState extends State<MainScreen> {
       body: SafeArea(
         child: Stack(
           children: <Widget>[
-            MapScreen(),
+            tabs[_currentIndex],
             Align(
               alignment: Alignment.topCenter,
               child: StatusAppbar(),
@@ -56,7 +64,12 @@ class _MainScreenState extends State<MainScreen> {
               ),
               child: BottomNavigationBar(
                 type: BottomNavigationBarType.fixed,
-                currentIndex: 1,
+                currentIndex: _currentIndex,
+                onTap: (int index) {
+                  setState(() {
+                    _currentIndex = index;
+                  });
+                },
                 backgroundColor: Colors.transparent,
                 selectedItemColor: Colors.white,
                 unselectedItemColor: Colors.white30,
