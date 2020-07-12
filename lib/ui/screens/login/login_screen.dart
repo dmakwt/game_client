@@ -19,11 +19,21 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final textController1 = TextEditingController();
+  final textController2 = TextEditingController();
+
   final focus1 = FocusNode();
   final focus2 = FocusNode();
 
-  final textController1 = TextEditingController();
-  final textController2 = TextEditingController();
+  @override
+  void dispose() {
+    textController1.dispose();
+    textController2.dispose();
+    focus1.dispose();
+    focus2.dispose();
+
+    super.dispose();
+  }
 
   double caculateTopHeight(BuildContext context) {
     final size = MediaQuery.of(context).size;

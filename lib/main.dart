@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final botToastBuilder = BotToastInit();
-
+    playSound();
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Game',

@@ -26,6 +26,18 @@ class _RegisterScreenState extends State<RegisterScreen> {
   final focus2 = FocusNode();
   final focus3 = FocusNode();
 
+  @override
+  void dispose() {
+    textController1.dispose();
+    textController2.dispose();
+    textController3.dispose();
+    focus1.dispose();
+    focus2.dispose();
+    focus3.dispose();
+
+    super.dispose();
+  }
+
   double caculateTopHeight(BuildContext context) {
     final size = MediaQuery.of(context).size;
     if (size.height >= 1000) {
