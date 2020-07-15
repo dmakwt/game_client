@@ -63,6 +63,8 @@ class _MainScreenState extends State<MainScreen> {
                 highlightColor: Colors.transparent,
               ),
               child: BottomNavigationBar(
+                selectedLabelStyle: TextStyle(fontFamily: 'PTSerif'),
+                unselectedLabelStyle: TextStyle(fontFamily: 'PTSerif'),
                 type: BottomNavigationBarType.fixed,
                 currentIndex: _currentIndex,
                 onTap: (int index) {
@@ -85,10 +87,6 @@ class _MainScreenState extends State<MainScreen> {
                   _buildBottomNavigationBar(
                     image: 'menu',
                     text: 'Messages',
-                  ),
-                  _buildBottomNavigationBar(
-                    image: 'trade',
-                    text: 'Clan',
                   ),
                   _buildBottomNavigationBar(
                     image: 'options',
