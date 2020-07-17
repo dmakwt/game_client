@@ -6,14 +6,15 @@ class ProfileFrame extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      alignment: Alignment.center,
       child: Column(
         children: <Widget>[
           SizedBox(
             height: 150,
           ),
           SizedBox(
+            width: 700,
             height: 550,
-            width: 500,
             child: Stack(
               children: <Widget>[
                 Container(
@@ -24,7 +25,7 @@ class ProfileFrame extends StatelessWidget {
                     fit: BoxFit.fill,
                     // scale: 0.4,
                     width: 700,
-                    height: 490,
+                    height: 500,
                   ),
                 ),
                 Positioned(
@@ -40,8 +41,8 @@ class ProfileFrame extends StatelessWidget {
                   ),
                 ),
                 Positioned(
-                  top: 100,
-                  left: 18,
+                  top: 80,
+                  left: 13,
                   child: Column(
                     children: <Widget>[
                       SelectedItem(
@@ -63,8 +64,8 @@ class ProfileFrame extends StatelessWidget {
                   ),
                 ),
                 Positioned(
-                  top: 100,
-                  right: 18,
+                  top: 80,
+                  right: 13,
                   child: Column(
                     children: <Widget>[
                       SelectedItem(
@@ -91,8 +92,8 @@ class ProfileFrame extends StatelessWidget {
                     'assets/frames/field.png',
                     fit: BoxFit.fill,
                     // scale: 0.4,
-                    width: 350,
-                    height: 65,
+                    width: 330,
+                    height: 60,
                   ),
                 ),
               ],

@@ -19,21 +19,22 @@ class HomeScreen extends StatelessWidget {
           DiagonalScrollView(
             enableFling: true,
             enableZoom: true,
-            minScale: 0.5,
-            maxScale: 0.75,
-            maxWidth: 1920,
-            maxHeight: 1295,
+            minScale: 0.4,
+            maxScale: 0.9,
+            maxWidth: 3840,
+            maxHeight: 2160,
             onCreated: (DiagonalScrollViewController controller) {
               controller.moveTo(
-                location: Offset(900, 300),
+                location: Offset(1400, 300),
+                scale: 0.4,
               );
             },
             onScaleChanged: (double scale) {
               // print('On scale changed');
             },
             child: Container(
-              width: 1920,
-              height: 1295,
+              width: 3840,
+              height: 2160,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage('assets/frames/map.png'),

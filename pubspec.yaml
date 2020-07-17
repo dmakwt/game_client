@@ -87,6 +87,7 @@ flutter:
     - assets/appbar/
     - assets/flare/
     - assets/bottombar/
+    - assets/items/
     - assets/items/placeholders/
     - assets/characters/
     # - images/a_dot_burr.jpeg
